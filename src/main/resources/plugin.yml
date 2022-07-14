@@ -1,0 +1,7 @@
+name: CraftAPI
+version: '${project.version}'
+main: org.mcausc78.craftapi.DummyPlugin
+load: STARTUP
+softdepend: [ PlaceholderAPI ]
+authors: [ MCausc78 ]
+description: A api for developers.

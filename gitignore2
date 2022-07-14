@@ -1,0 +1,19 @@
+
+# File trash
+*.(cab|ms(i|ix|m|p)|lnk|stackdump|(j|w|n|e|r)ar|ta(r.gz|r)|imp|ipr|iws|class|log|ctxt)
+.(fuse_hidden*|directory|Trash-*|nfs|DS_Store|AppleDouble|LSOverride|DocumentRevisions-V100|fseventsd|Spotlight-V100|TemporaryItems|Trashes|VolumeIcon.icns|com.apple.timemachine.donotpresent|AppleDB|AppleDesktop|apdisk)
+hs_err_pid*
+*~
+[Dd]esktop.ini
+pom.xml.(tag|releaseBackup|versionsBackup|next)
+(T|eht)humb(s|s_vista).d(b|b:encryptable)
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+.flattened-pom.xml
+(.idea|out|target|run|(.g|g)radle|javadocs|$RECYCLE.BIN)/
+Icon
+
+._*
