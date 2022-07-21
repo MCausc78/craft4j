@@ -33,6 +33,7 @@ public class ComboBox {
         return this.box;
     }
     public String getElement() {
-        return this.box.getSelectedItem();
+        Object i = this.box.getSelectedItem();
+        return (String)i;
     }
 }
