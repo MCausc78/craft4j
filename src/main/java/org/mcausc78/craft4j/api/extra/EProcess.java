@@ -2,10 +2,7 @@ package org.mcausc78.craft4j.api.extra;
 
 import org.mcausc78.craft4j.api.exceptions.GetProcessException;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.List;
 
 /**
@@ -18,8 +15,8 @@ import java.util.List;
  *
  */
 public class EProcess {
-    ProcessBuilder builder;
-    Process process;
+    private final ProcessBuilder builder;
+    private final Process process;
     public EProcess(String command) {
         this.builder = new ProcessBuilder(command);
     }
@@ -49,6 +46,9 @@ public class EProcess {
     }
     public BufferedReader getErrorBufferedReader() {
         return new BufferedReader(this.getErrorStreamReader());
+    }
+    public BufferedWriter getBufferedWriter() {
+        return new BufferedWriter(new OutputStreamWriter(this.getProcess().getOutputStream()));
     }
     public Process getProcess() {
         return this.process;
