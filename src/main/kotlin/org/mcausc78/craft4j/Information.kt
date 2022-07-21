@@ -8,27 +8,33 @@ import java.lang.Exception
 import java.lang.System
 
 public class Information {
-    fun main() {
+    fun main(args : Array<String>) {
+        // jvm accept only main function with args paramater
         println("Did you want to see Craft4J example?")
         val os = OSUtil.getOS().toString()
         val separator = OSUtil.getFileSeparator()
         println("Your OS is $os, file separator is $separator")
         var builder = JsonBuilder()
         val env = System.getenv()
-        for (val key: String in env) {
-            builder.append(key, System.getenv(key))
+        for ((key, value) in env) {
+            builder.put(key, value)
         }
         val builded = builder.build()
         println("System environment in JSON: $builded")
         try {
             var f = Frame("Hello, world!")
             var b = Button("Click me!")
-            b.getButton().addActionListener(ev -> io.println("Hello, world!"))
+            b.getButton().addActionListener { ev -> println("Hello, world!") }
+            b.getButton().setBounds(0, 0, 256, 256)
+            f.getFrame().setSize(256, 256)
             f.getFrame().getContentPane().add(b.getButton())
             f.build()
-        } catch (val ex: Exception) {
+        } catch (ex: java.lang.Exception) {
             println("Failed to setup frame!")
         }
     }
 }
 // Information.main()
+fun main() {
+    Information().main(arrayOf(""))
+}
