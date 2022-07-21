@@ -14,7 +14,6 @@ public class OSUtil {
      */
     public static SystemType getOS() {
         String os = System.getProperty("os.name").toLowerCase();
-        // "AIX", "Windows", "BSD", "Darwin", "macOS");
         SystemType system;
         if(os.contains("aix")) {
             return SystemType.AIX;

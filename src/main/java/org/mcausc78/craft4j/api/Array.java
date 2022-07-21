@@ -8,6 +8,8 @@ array.put("world");
 System.out.printf("My array : %s\n", array.toString());
  */
 
+import java.util.Arrays;
+import org.mcausc78.craft4j.api.Iterable;
 public class Array<E> implements Iterable<E> {
     private E[] array;
     public Array() {
@@ -18,7 +20,7 @@ public class Array<E> implements Iterable<E> {
         this.setArray(array);
     }
     private void init() {
-        this.array = new E[]{};
+        this.array = (E[]) new Object[0];
     }
     public E[] getArray() {
         return this.array;
@@ -28,7 +30,7 @@ public class Array<E> implements Iterable<E> {
     }
     public Array<E> put(E e) {
         int i = 0;
-        E[] array = new E[this.getArray().length+1];
+        E[] array = (E[]) new Object[this.getArray().length+1];
         this.array = null;
         for (E ie : this.getArray()) {
             // ie = iterable element
@@ -53,12 +55,17 @@ public class Array<E> implements Iterable<E> {
         }
         return;
     }
-    public Array<String> toStrings() {
+    /*public Array<String> toStrings() {
         this.forEach(e -> {
 
         });
-    }
+    }*/
     public String toString() {
-        return String.format("[%s]", String.join(", ", this.array));
+        return Arrays.toString((Object[]) this.getArray());
+    }
+
+    @Override
+    public void forEach(E e) {
+
     }
 }

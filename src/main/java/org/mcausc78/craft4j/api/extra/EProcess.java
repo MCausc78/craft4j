@@ -1,6 +1,6 @@
 package org.mcausc78.craft4j.api.extra;
 
-import org.mcausc78.craft4j.api.exceptions.GetProcessException;
+import org.mcausc78.craft4j.api.exceptions.ProcessStartException;
 
 import java.io.*;
 import java.util.List;
@@ -16,7 +16,7 @@ import java.util.List;
  */
 public class EProcess {
     private final ProcessBuilder builder;
-    private final Process process;
+    private Process process;
     public EProcess(String command) {
         this.builder = new ProcessBuilder(command);
     }
@@ -53,12 +53,12 @@ public class EProcess {
     public Process getProcess() {
         return this.process;
     }
-    public void start() throws GetProcessException {
-        if(process != null) throw new GetProcessException("Process already running");
+    public void start() throws ProcessStartException {
+        if(this.getProcess() != null) throw new ProcessStartException("Process already running");
         try {
             this.process = this.builder.start();
         } catch (IOException e) {
-            throw new GetProcessException(e);
+            throw new ProcessStartException(e);
         }
     }
 }
